@@ -1,0 +1,31 @@
+mostly supervised learning of probabilitistic models
+EXEPCTION: EM for spelling correction and POS taggining is unsupervised
+
+Topics in common with previous years
+-Corpora, annotation, evaluation
+-Ambiguity at all levels
+-N-gram models, entropy, smoothing
+-Noisy channel framework
+-Spelling correction, edit distance
+-HMMs, part-of-speech tagging
+-Syntax, parsing algorithms, PCFGs, other grammar formalisms
+-Lexical semantics:  word senses, semantic roles, distributional semantics
+
+Eliminated since last year
+-corpus markup
+-mathematical details of backoff in N-gram models
+-details of forward-backward algorithm for HMMs
+-feature structure grammars
+-pronoun resolution
+-discourse coherence
+-Machine Translation (PROBABLY)
+
+New since last year
+-Updated discussion of evaluation, including crowdsourcing
+-High-level overview of more modern smoothing methods
+-More complete example of spelling correction (end-to-end system)
+-Generalized discussion of EM (showing application in both spelling correction and HMMs)
+-Text classification (tasks and methods)
+-Dependency grammar and related algorithms
+-More detail on semantic roles and distributional semantics
+-Machine Translation (non-examinable this year; has been on some past papers)
