@@ -29,3 +29,15 @@ New since last year
 -Dependency grammar and related algorithms
 -More detail on semantic roles and distributional semantics
 -Machine Translation (non-examinable this year; has been on some past papers)
+
+Multilevel Ambiguity
+  -word sense
+  -part of speech
+  -syntactic structure I saw a man with a telescope
+  -Quantifier scope (all in a sentence what it applies to)
+  -Multiple: I saw her duck jej kaczke, ja robiaca jak kaczka
+  
+ZIPFS LAW
+  the most frequent word will occur approximately twice as often as the second most frequent word, three times as often as the third most frequent word
+  Regardless  of  how  large  our  corpus  is,  there  will  be  a  lot  of  infrequent  (and zero-frequency!) word
+  
