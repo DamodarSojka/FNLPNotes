@@ -73,7 +73,42 @@ Entropy and Cross-entropy
   -how many yes/no questions do we need to ask to find out the outcome
   -low entropy means low uncertainty
   -cross-entropy >= entropy, uncertainty of a model can be no less than the true uncertainty
-  - 
+  
+  per-word cross-entropy is well approximated by:
+    H(w1, w2, ... wn) = -1/n log(base2)Prob(w1, w2, ... wn)
+    -1/7(lg2(P(I)) + lg2(P(spent|I) + ....) = -1/7(-0.1 -6.3 ...) = 6
+    
+  -perplexity:
+    -LM performance is reported as perplexity which is 2^cross-entropy
+    -The   average   branching   factor   at   each   decision   point,   if   our distribution were uniform ?!?!?!??!?
+  
+  -low cross-entropy can mean that model is good or the corpus is 'easy', only compare diff models on same corpus
+  
+Smoothing:
+  -MLE makes the training data maximally  probable by making unseen data minimally probable
+  -Add-One Laplace:
+    -in large vocabulary size it steals to much from seen events
+  -Add-alpha (Lidstone):
+    -add aplha<1 instead of 1
+    -how to pick alpha:
+      -three-way split:
+        -training data 80-90
+        -held-out (or development) 5-10
+        -test 5-10
+      -train with different aplhas on training set
+      -chose alpha that minimizes cross-entropy on dev set
+      -report final on test set
+  -Good-Turing:
+    -changes nominator
+    -P(GT) = c*/n   c* = (c+1)(N(c+1))/N(c) N(c) ow many things occured with frequency c
+      Sam I am I am Sam I do not eat
+        I 3          N(1) = 3
+        sam 2        N(2) = 2
+        am 2         N(3) = 1
+        do 1
+        not 1
+        eat 1
+  
   
 Definitions:
   -gold labels with Sentiment Analysis attached +/
