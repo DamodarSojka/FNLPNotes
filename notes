@@ -40,12 +40,41 @@ ZIPFS LAW
   the most frequent word will occur approximately twice as often as the second most frequent word, three times as often as the third most frequent word
   Regardless  of  how  large  our  corpus  is,  there  will  be  a  lot  of  infrequent  (and zero-frequency!) word
   
-N-gram model
+N-gram model (and LMs?)
   probability of sentence, probability of sequence of characters
   used for:
     -spelling correction 
     -automatic speech recognition
     -machine translation
+    -predictive text completion
+  how to use:
+    -for sentence, probability of words of the sentence, word given rest of the words
+    -use n-grams the probability of a word only depends on a fixed number of previous words (history)
+    
+    -P(mast | before, the) = C(before, the, mast)/C(before, the) C- Counts (just an integer)
+    
+    -to capture beginning/end of sequence augument the input <s> <s> FIRSTWORD when trigram
+    -or treat all the things as a long squence P(He | LASTWORDOFPREVIOUSSENTENCE, .)
+    
+    -use negative log probabilities (called costs), add stuff instead of mult
+  
+MLE
+  problems:
+    -thinks that everything that hasn't occured will never occur
+    -so if data is sparse (most of the time) don't use it
+  
+EVALUATION TYPES
+  -Extrinsic:
+    
+  -Intrinsic:
+    characterise performance according to the gold standard
+    
+Entropy and Cross-entropy
+  -how many yes/no questions do we need to ask to find out the outcome
+  -low entropy means low uncertainty
+  -cross-entropy >= entropy, uncertainty of a model can be no less than the true uncertainty
+  - 
   
 Definitions:
   -gold labels with Sentiment Analysis attached +/
+  -estimation vs probability, estimation - we have not true probabilities we throw coin 10 times and mesaure
