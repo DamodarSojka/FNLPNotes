@@ -11,15 +11,6 @@ Topics in common with previous years
 -Syntax, parsing algorithms, PCFGs, other grammar formalisms
 -Lexical semantics:  word senses, semantic roles, distributional semantics
 
-Eliminated since last year
--corpus markup
--mathematical details of backoff in N-gram models
--details of forward-backward algorithm for HMMs
--feature structure grammars
--pronoun resolution
--discourse coherence
--Machine Translation (PROBABLY)
-
 New since last year
 -Updated discussion of evaluation, including crowdsourcing
 -High-level overview of more modern smoothing methods
@@ -28,7 +19,15 @@ New since last year
 -Text classification (tasks and methods)
 -Dependency grammar and related algorithms
 -More detail on semantic roles and distributional semantics
--Machine Translation (non-examinable this year; has been on some past papers)
+
+Eliminated since last year
+-corpus markup
+-mathematical details of backoff in N-gram models
+-details of forward-backward algorithm for HMMs
+-feature structure grammars
+-pronoun resolution
+-discourse coherence
+-Machine Translation (PROBABLY)
 
 Multilevel Ambiguity
   -word sense
@@ -41,3 +40,12 @@ ZIPFS LAW
   the most frequent word will occur approximately twice as often as the second most frequent word, three times as often as the third most frequent word
   Regardless  of  how  large  our  corpus  is,  there  will  be  a  lot  of  infrequent  (and zero-frequency!) word
   
+N-gram model
+  probability of sentence, probability of sequence of characters
+  used for:
+    -spelling correction 
+    -automatic speech recognition
+    -machine translation
+  
+Definitions:
+  -gold labels with Sentiment Analysis attached +/
