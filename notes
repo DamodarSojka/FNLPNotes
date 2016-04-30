@@ -233,6 +233,36 @@ Text classification:
     -Cons of MaxEnt:
       -multple iterations to gradually improve weight (gradient ascent)
       -time consuming
+
+Part of speech:
+  -Open class words nouns verbs... new ones are being added website email
+  -Closed class words pronouns determiners ... limited number of those
+
+POS taggining:
+  -can be useful for:
+    -text clasification
+    -word sense dismabiguation
+  -hard because:
+    -ambigutiy glass of water/NOUN vs water/VERB the plants
+    -sparse data
+  -how to tag:
+    -take word into account (arrow is always a NOUN)
+    -take into accout surrounding words (two determiners rarerly follow each other)
+    
+Hidden Markoc Models HMMs:
+  -can be used for:
+    -POS taggining
+    -Names entity recognition (label words as belonging to persons, orgzanizations...)
+    -Inforamtion field segmentation (is this part refering to place of event? to price of event?)
+  -P(TAGSequence|sentence) = P(T|S) = P(S|T)P(T)/P(S) = argmax(T) P(T|S) = argmax(T) P(S|T)P(T)
+  -P(T) is the state transition sequence
+  -P(S|T) are the emission probabilities
+  -Viterbi algorithm
+   
+Dynamic programming:
+  -use when:
+    -enumeration is not computationally possible
+  -uses memoization to avoid recomputations
     
 Definitions:
   -gold labels (when performing Sentiment Analysis) are +/- attached to the sentence
