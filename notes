@@ -152,10 +152,36 @@ Noisy channel model:
   
 Spelling correction system:
   -assume large dict of real words
-  -generate list of words y that differ by 1 character from x
+  -generate list of words y that differ by z character from x
   -Compute P(x|y)P(y) for each y and return max y
+  -assume that typed character xi depends only on intended character yi (ignore context) then:
+    P(actualword|intendedword) = P(no|not) = P(n|n)P(o|o)P(-|t)
+    
+  -we want to get rid of hand alignments:
+    -we can produce them using MED
+    -but to estimate cost we need noise model
+    -but until we have alignments we can't esimate the noise model
+    -need to use EM (expectation maximization)
+    
+Expectation-Maximization:
+  -initialize learning parameters to arbitrary values (set all costs = 1)
+  -compute optimal values for variables (run MED to get alignments)
+  -recompute parameters using computed values
+  -repeat until convergence (to local optimum of likeligood function)
+
+Likelihood function:
+  -call parameters of the model alpha
+  -we can calculate probability of the dataset P(data|alpha) (this is the likelihood)
   
+Minimum edit distance:
+  -amount of deletion + substitution + insertion, MED(stall, table) = 3
+    S T A L L -
+    d | | s | i
+    - T A B L E
+  -use dynamic programming to find optimal solution (there are multiple) cost is O(len(str1)* len(str2)) for mem and space
+  -used for spelling correction
+
 Definitions:
   -gold labels (when performing Sentiment Analysis) are +/- attached to the sentence
   -estimation vs probability, estimation - we have not true probabilities we throw coin 10 times and mesaure
-  -alignmens - misspelled word to real word effert - effort
+  -alignmens - misspelled word to real word effert - effort how many sub del inserts are needed to change one to another
