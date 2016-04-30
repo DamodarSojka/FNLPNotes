@@ -119,6 +119,14 @@ Smoothing:
     -P(INTERPOLATION)(three|I, spent) = lamba1*P(three) + lambda2*P(three|spent) + lambda3*P(three|I, spent)
     -lambda1 + lambda2 + ... + lambdan = 1
     -lambdas are called interpolation parameters or mixture weights
+    -chose lamda that maximises perplexity (2^cross-entropy) on held-out (dev)
+  -Back-Off
+    -if highest N-gram is present use it, if not pick lower order N-gram
+    -each N-gram probability has to be weighted with backoff weight
+    -weights have to add up to 1, complicated maths
+    problems:
+      -bigram New York high probability York is almost always following New so as an N-gram it should have low probability, it is not the case with backoff (and interpolation)
+      
   
 Definitions:
   -gold labels (when performing Sentiment Analysis) are +/- attached to the sentence
