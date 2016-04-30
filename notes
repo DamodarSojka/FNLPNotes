@@ -294,6 +294,10 @@ Annotation:
 Evaluation:
   -dev set (held-out) is for tuning parameters
   -use dev set for tuning in order to prevent overfitting
+  -gold standard the truth the best human judgement about what correct is in a task
+  -upper bound is the gold standard
+  -lower bound is a simple model baseline
+  -is the improvement within Statistical significance
   
 Definitions:
   -gold labels (when performing Sentiment Analysis) are +/- attached to the sentence
