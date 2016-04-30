@@ -131,6 +131,31 @@ Smoothing:
     -N(1+)(dot_wi) = |{w(1-i) : c(w(1-i), wi) > 0}|
     -take maximum likelihood and replace raw counts with count of histories
   
+Word similarity: 
+  -two words C(salmon) >> C(swordfish) can P(salmon|caught two) can us anything about P(swordfish|caught two) ?
+  -early idea:
+    define class of words
+  -now:
+    -distributed language models
+    -each word represented as high-dimensional vector (50-500)
+    -similar words represtend by similar vectors
+    -learn words representation (embeddings) such that words that behave similarly are close together in space
+    -learning embeddings is extremly time-consuming
+    -embeddings capture both semantic and syntactic similarity
+    
+Noisy channel model:
+  -assume noise:
+    -typed words as opposed to intended words
+    -spoken words as opposed to acoustic signal(that is perfect)
+    -L1 to L2 (machine translation)
+  -argmax(y)P(y|x) = argmax(y)P(x|y)P(y)    P(y) distribution of words user intended to type  P(x) distribution of words user typed
+  
+Spelling correction system:
+  -assume large dict of real words
+  -generate list of words y that differ by 1 character from x
+  -Compute P(x|y)P(y) for each y and return max y
+  
 Definitions:
   -gold labels (when performing Sentiment Analysis) are +/- attached to the sentence
   -estimation vs probability, estimation - we have not true probabilities we throw coin 10 times and mesaure
+  -alignmens - misspelled word to real word effert - effort
