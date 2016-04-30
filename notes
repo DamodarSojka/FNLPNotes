@@ -172,6 +172,7 @@ Expectation-Maximization:
 Likelihood function:
   -call parameters of the model alpha
   -we can calculate probability of the dataset P(data|alpha) (this is the likelihood)
+  -may have many local optima
   
 Minimum edit distance:
   -amount of deletion + substitution + insertion, MED(stall, table) = 3
@@ -180,6 +181,35 @@ Minimum edit distance:
     - T A B L E
   -use dynamic programming to find optimal solution (there are multiple) cost is O(len(str1)* len(str2)) for mem and space
   -used for spelling correction
+  
+Text classification:
+  -spam detection
+  -sentiment analysis (binary of multiway):
+    -pos/neg, 1-5 stars
+    -pro/con, pro/con/neutral
+  -topic classification
+  -authorship attribution
+  -can use N-gram but it is not capable of using other kinds of features like POS tags
+  -use bag of words
+  -prepare features:
+    -binarize words
+    -ignore stopwords
+    -chose a small task-relevant set:
+      -using a sentiment lexicon so words that are indication stuff like bad awful, adobrable
+      -domain specific (memory, operating system for PC computer product reviews)
+  -using naive bayes for text classification:
+    pros:
+      -easy to implement
+      -fast to train and classify
+      -doesnt require much training data
+      -usually works well
+      -pick as baseline
+    cons:
+      -feature are usually not independent given the class, given TRAVEL sun and beach more likely than sun and sking
+      -overconfident (asking 5 friends some opinion when some got their from each other)
+  -Maximum Entropy model (or MaxEnt):
+    
+    
 
 Definitions:
   -gold labels (when performing Sentiment Analysis) are +/- attached to the sentence
