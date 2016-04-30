@@ -211,9 +211,28 @@ Text classification:
     -model P(c|d) (class given document) directly
     -feature are functions that depend on both observations and class:
       for example with 3 classes:
-        f1: contains('ski') & c = 1
-        f2: contains('ski') & c = 2
-        f3: contains('ski') & c = 3
+        f1: contains('ski') & c = 1           w1 = 1.2
+        f2: contains('ski') & c = 2           w2= -0.2
+        f3: contains('ski') & c = 3           ...
+        f4: link_to('wikipedia.com') & c = 1
+        f5: contains('wikipedia.com') & c = 2
+        f6: contains('wikipedia.com') & c = 3
+    -P(c|observeddata) = 1/Z exp(observeddata dotproduct allfunctionsForThatClass) Z is normalising factor
+    -features are defined using templates
+      contains(w) & c
+      header_contains(w) & c
+      header_contains(w) & link_in_header & c
+      ...
+      -instantiate with all possible words w and classes c
+      -filter out features occuring very few times
+    -train the model:
+      -given annotated data
+      -chose weights that make the make lables most probable under the model
+      -called Conditional Maximum Likelihood Estimation CMLE
+      -will overfit, so use regularization
+    -Cons of MaxEnt:
+      -multple iterations to gradually improve weight (gradient ascent)
+      -time consuming
     
 Definitions:
   -gold labels (when performing Sentiment Analysis) are +/- attached to the sentence
