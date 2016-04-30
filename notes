@@ -248,6 +248,7 @@ POS taggining:
   -how to tag:
     -take word into account (arrow is always a NOUN)
     -take into accout surrounding words (two determiners rarerly follow each other)
+  -can be viewed as a probabilistic FSM with transitions between states (tags) and emit on each state (words)
     
 Hidden Markoc Models HMMs:
   -can be used for:
@@ -258,7 +259,13 @@ Hidden Markoc Models HMMs:
   -P(T) is the state transition sequence
   -P(S|T) are the emission probabilities
   -Viterbi algorithm
-   
+  
+Viterbi:
+  -can be though as decoding someone sends us sequence of tags but they are converted to words and we need to go back
+  -exhaustive
+  -O(T^2 N) time and O(NT) space      N length T possible tags
+  -use negative log probs
+
 Dynamic programming:
   -use when:
     -enumeration is not computationally possible
