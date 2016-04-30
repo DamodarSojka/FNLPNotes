@@ -207,10 +207,14 @@ Text classification:
     cons:
       -feature are usually not independent given the class, given TRAVEL sun and beach more likely than sun and sking
       -overconfident (asking 5 friends some opinion when some got their from each other)
-  -Maximum Entropy model (or MaxEnt):
+  -Maximum Entropy model (or MaxEnt or multinomial logistic regression or  log-linear model or single neuron classifier):
+    -model P(c|d) (class given document) directly
+    -feature are functions that depend on both observations and class:
+      for example with 3 classes:
+        f1: contains('ski') & c = 1
+        f2: contains('ski') & c = 2
+        f3: contains('ski') & c = 3
     
-    
-
 Definitions:
   -gold labels (when performing Sentiment Analysis) are +/- attached to the sentence
   -estimation vs probability, estimation - we have not true probabilities we throw coin 10 times and mesaure
