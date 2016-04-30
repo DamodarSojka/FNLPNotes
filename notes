@@ -259,6 +259,17 @@ Hidden Markoc Models HMMs:
   -P(T) is the state transition sequence
   -P(S|T) are the emission probabilities
   -Viterbi algorithm
+  -Unsupervised learning of transitions:
+    -we dont know state sequence we cant find transitions
+    -if we know transitions we can find the best state sequence
+    -use EM initialize params, compute expected counts, set new params based on MLE on the expected counts
+    -real counts - count each transition in true tag sequence
+    -expected counts - if sequence Q has prob p count p for each transition in Q, add up fractional counts across all possible sequences
+    -forward-backward can be used istead of EM
+
+Baum-Welch forward-backward:
+  -computes expected counts using foward-probabilities and backward probabilities
+  -EM is more general
   
 Viterbi:
   -can be though as decoding someone sends us sequence of tags but they are converted to words and we need to go back
@@ -271,6 +282,19 @@ Dynamic programming:
     -enumeration is not computationally possible
   -uses memoization to avoid recomputations
     
+Annotation:
+  -hard because:
+    -grey areas between categories
+    -ambiguous
+  -provide guidelines
+  -qualiti subject to training and experience
+  -make many ppl annotate and mesaure inter-annotator agreement
+  -raw agreement rate proportion of labels in agreement
+
+Evaluation:
+  -dev set (held-out) is for tuning parameters
+  -use dev set for tuning in order to prevent overfitting
+  
 Definitions:
   -gold labels (when performing Sentiment Analysis) are +/- attached to the sentence
   -estimation vs probability, estimation - we have not true probabilities we throw coin 10 times and mesaure
