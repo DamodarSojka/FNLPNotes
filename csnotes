@@ -1,0 +1,13 @@
+Buffer overflow:
+  pointers:
+    ebp base pointer
+    esp stack pointer
+    eip instruction pointer
+  
+  
+  param2
+  param1
+  return address
+  ebp
+  local var 1
+  local var 2
