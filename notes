@@ -379,6 +379,11 @@ Lexical dependency:
   -cons:
     -sparse
     -need to use complex smoothing
+  evaluation:
+    -count number of correctly and uncorrectly predicted constituents
+  
+Lexicalized Constituency Parse:
+  -
   
 Definitions:
   -gold labels (when performing Sentiment Analysis) are +/- attached to the sentence
