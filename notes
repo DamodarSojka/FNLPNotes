@@ -100,17 +100,19 @@ Smoothing:
       -report final on test set
   -Good-Turing:
     -changes nominator
-    -P(GT) = c*/n   c* = (c+1)(N(c+1))/N(c) N(c) ow many things occured with frequency c
+    -P(GT) = c*/N   c* = (c+1)(N(c+1))/N(c) N(c) ow many things occured with frequency c. N is total number of words
       Sam I am I am Sam I do not eat
-        I 3          N(1) = 3  3/10 (N(1) / total)   total 1*3 + 2*2 + 1 *3 = 10
+        I 3          N(1) = 3 total 1*3 + 2*2 + 1 *3 = 10
         sam 2        N(2) = 2
         am 2         N(3) = 1 
-        do 1         so for zero frequency c* = 1(3)/10 (c+1)(N(c+1))/N(c) N(c) ow many things occured with frequency c
-        not 1        so for one frequency c* = 2(2)/10
+        
+        so for zero we estimate only probability that something unseen happens, it is N(1)/N so here 3/10
+        do 1         so for one frequency adjusted count is c* = 2(2)/3 and the probability is c*/N so here 4/3/10
+        not 1        
         eat 1        sp fpr two
     -problems with Good-Turing:
       -assumes that we know the vocabulary size
-      -doesn't allow "holes" in the counts, N(100) = 0, how to estimate N(99)???
+      -doesn't allow "holes" in the counts, N(100) = 0, how to estimate N(99)???  USE LINEAR REGERSSION
       -applies discounts (lower probability) even to high-frequency items
   -Interpolation:
     -combine higher and lower order N-grams:
@@ -190,7 +192,7 @@ Text classification:
   -topic classification
   -authorship attribution
   -can use N-gram but it is not capable of using other kinds of features like POS tags
-  -use bag of words
+  -use bag of words (it doesn't take order of words into account)
   -prepare features:
     -binarize words
     -ignore stopwords
@@ -299,7 +301,16 @@ Evaluation:
   -lower bound is a simple model baseline
   -is the improvement within Statistical significance
   
+Syntax:
+  -long-range dependencies Sam ... sleeps, Dogs ... sleep
+  -substitutability at the phrasal level: (phrasal substitutability)
+    -substitude adjectives red -> blue
+    -substitude noun phrases dogs->green mushrooms
+  -well-formed is diff from meaningful
+  
 Definitions:
   -gold labels (when performing Sentiment Analysis) are +/- attached to the sentence
   -estimation vs probability, estimation - we have not true probabilities we throw coin 10 times and mesaure
   -alignmens - misspelled word to real word effert - effort how many sub del inserts are needed to change one to another
+  -latent variables - hidden variables
+  
