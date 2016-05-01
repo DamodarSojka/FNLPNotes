@@ -308,6 +308,48 @@ Syntax:
     -substitude noun phrases dogs->green mushrooms
   -well-formed is diff from meaningful
   
+Context-free grammar: CFG
+  -consists of:
+    -terminals
+    -non-terminals
+    -Start symbol (is part of non-terminals)
+    -rules non-terminal to terminal
+  -structural ambiguity sentences that have more than one parse (they have different POSs)
+  -attachment ambiguity (words have same POSs attached but tree can be produced differently)
+  -global ambiguity - multiple analyses of a full sentence
+  -local ambiguity - multiple analyses for a parts of sentence
+
+Parsing:
+  -directionality:
+    -top-down
+    -bottom-up
+    -mixed
+  -search strategy:
+    -DFS:
+      -costly if facing local ambiguity
+      -use probabilistic model to pick best choices
+    -BFS
+    -best first search
+  -dynamic programming:
+    -with CFG any substring is independent of the rest of the parse, so we can avoid recomputing
+    -multiple parses are explored at once
+    -chart (well-formed substring table WFST)
+
+Recursive Descent Parsing:
+  -top down depth first
+  -expands nonterminals until reaching a terminal
+  -backtracks if no options available
+  -if left-recursive can stuck
+
+Shift-Reduce Parsin:
+  -depth first BUT bottom-up
+  -puts words from sentence onto a stack
+  -when RHS of any rule matches reduces one or more elements from the top of the stack to a LHS of that rule 
+  -maintains backtrack points
+  
+CKY:
+  -dynamic programming
+  
 Definitions:
   -gold labels (when performing Sentiment Analysis) are +/- attached to the sentence
   -estimation vs probability, estimation - we have not true probabilities we throw coin 10 times and mesaure
