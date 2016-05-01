@@ -370,6 +370,15 @@ Probabilistic parsing: PCFG prob context free grammar
     
 Lexical dependency:
   -She called on the student vs she called on the phone
+  -PCFGs are context free so POT tag will have same prob regardless of where is appears
+  -how to fix context free:
+    -augument POS tag with parent information so NP^S (if in subject position, so parent is subject), NP^VP, NP^PP
+    -augument POS tag with lexicalization, add lexical head of the phrase (of a part of the sentence)
+  -pros:
+    -more specific
+  -cons:
+    -sparse
+    -need to use complex smoothing
   
 Definitions:
   -gold labels (when performing Sentiment Analysis) are +/- attached to the sentence
