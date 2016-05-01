@@ -349,6 +349,27 @@ Shift-Reduce Parsin:
   
 CKY:
   -dynamic programming
+  -bottom up, breadth first
+  -finds all possible parses
+  -avoids recomputing
+  
+Probabilistic parsing: PCFG prob context free grammar
+  -treebank grammars:
+    -annotate real sentences with parse trees
+    -get gramma and probabilities for each rule
+    -generative
+  -inside algorightm (computes the probability of the sentence)
+  -inside-outside algorithm:
+    -form of EM
+    -learns grammar rules probs from unannotated sentences
+  -use best first (use probabilities to chose)
+  -how to score parts of the sentence (constituents):
+    -if we just take raw scores then smaller constituents will almost always have higher scores
+    -divide by the number of words in the constituent
+    -still not guaranteed to find best parse
+    
+Lexical dependency:
+  -She called on the student vs she called on the phone
   
 Definitions:
   -gold labels (when performing Sentiment Analysis) are +/- attached to the sentence
