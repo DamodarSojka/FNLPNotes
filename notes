@@ -373,7 +373,7 @@ Lexical dependency:
   -PCFGs are context free so POT tag will have same prob regardless of where is appears
   -how to fix context free:
     -augument POS tag with parent information so NP^S (if in subject position, so parent is subject), NP^VP, NP^PP
-    -augument POS tag with lexicalization, add lexical head of the phrase (of a part of the sentence)
+    -augument POS tag with lexicalization, add lexical head of the phrase (of a part of the sentence, so first word of the current part of the sentence)
   -pros:
     -more specific
   -cons:
@@ -382,9 +382,72 @@ Lexical dependency:
   evaluation:
     -count number of correctly and uncorrectly predicted constituents
   
-Lexicalized Constituency Parse:
-  -
+Lexicalized Constituency Parse (Dependency parsing):
+  -why is it important:
+    -replacing word with another with same POS will not result in a different parsing decision
+  -create new categories by adding the lexical head of the phrase (S-saw kids)
+  -dependencies why/what 
+  -content head
+  -functional head
+  -captures head->modifier relations (label edges with the name of the relation)
+  -useful for information extraction tasks:
+    -involves real-world relationships, present chains of dependency
+  -sentence's dependency parse is projective if dependency parse can be drawn on top of the sentence without any crossing edge
+  -CKY with Eisner alhorithm is O(G * n^3) (probably this belongs to conversion-parsing)
+  -Transition-based Parsing O(n) time (only finds projective trees)
+  -Graph-based Parsing O(n^2)
   
+Semantics/Meaning/Sense:
+  -lexical semantics: the meaning of individual words
+  -sentential semantics: how word meanings combine
+  -different senses chemical plant/plant
+  -synonyms holiday vacation (synonymous words belong to the same synset)
+  -hyponym (words that are refering to subset)
+  -hypernym (words that are refering to superset)
+  -ontology - A is-a B relations
+  -gradation good better
+  -similarity good cool
+  -homonyms can be spelled the same but diff meaning bank of the river bank$$$ (not always clear diff with next)
+  -multiple senses polysems (polysemous words belong to multiple synsets) (not always clear diff with prev)
+  -need to inference, combine two informations, Poland is a country in central europe and central european countries have done something
+  -
+
+WordNet:
+  -ontology db
+  -synsets, sets of synonymous words, they are organized into a network by several kinds of relations:
+    -Hypernymy (Is-A): hyponym ambulance is a kind of hypernym car
+    -Meronymy (Part-Whole):  meronym air bag is a part of holonym car
+  -antonym OPPOSITES
+  -problems:
+    -neologisms: hoodie facepalm
+    -multiword expression pay attention
+    -names microsoft
+    
+WSD word sense disambiguation:
+  -givven polysemous word find the sense in a given context
+  -what features to use:
+    -direct neighbouring words
+    -any content words in a 50 words window
+    -syntactic role in a sense
+    -topic of the text
+    -POS, surrounding POSs
+    -care about correlated features!
+
+Semantic Classes:
+  -named entity recogniction NER
+  -supersense tagging (categorising PERSON LOCATION...)
+  -APPLE as ORG vs FOOD
+  -list of known names - gazetteers
+
+Distributional semantics:
+  -how big context is?
+  -boolean counts?
+  -how to mesaure similarity between vectors?
+  -mutual information:
+    -how much more/less likely the cooccurrence is than if the words were independent
+    -log2(actual prob of seeing words x and y together / Predicted prob of seeing x and y together is they are independent)
+    -positive PMI just 0 for pmi<=0 because for infrequent words not enough data to accurately determine negative PMIs
+
 Definitions:
   -gold labels (when performing Sentiment Analysis) are +/- attached to the sentence
   -estimation vs probability, estimation - we have not true probabilities we throw coin 10 times and mesaure
