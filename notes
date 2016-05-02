@@ -411,8 +411,8 @@ Semantics/Meaning/Sense:
   -ontology - A is-a B relations
   -gradation good better
   -similarity good cool
-  -homonyms can be spelled the same but diff meaning bank of the river bank$$$ (not always clear diff with next)
-  -multiple senses polysems (polysemous words belong to multiple synsets) (not always clear diff with prev)
+  -homonyms (two different words but spell or sound same) can be spelled the same but diff meaning bank of the river bank$$$ (not always clear diff with next)
+  -multiple senses polysems (one word used in two dif ways, diff in meaning can be obvious or subtle) (polysemous words belong to multiple synsets) (not always clear diff with prev)
   -need to inference, combine two informations, Poland is a country in central europe and central european countries have done something
   -
 
