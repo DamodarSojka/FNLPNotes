@@ -1,6 +1,3 @@
-mostly supervised learning of probabilitistic models
-EXEPCTION: EM for spelling correction and POS taggining is unsupervised
-
 Topics in common with previous years
 -Corpora, annotation, evaluation
 -Ambiguity at all levels
@@ -34,6 +31,9 @@ Multilevel Ambiguity
   -part of speech
   -syntactic structure I saw a man with a telescope
     -the relationship between the words and clauses of a sentence
+    -types:
+      -local, contains ambigious phrase but has only one interpretation, is often resolved
+      -global, has at least two interpretations no feature helps to distinquish
   -Quantifier scope (what is the scope of the quantifier like some all in the sentence)
   -Multiple: I saw her duck jej kaczke, ja robiaca jak kaczka
   
@@ -247,7 +247,9 @@ POS taggining:
     -word sense dismabiguation
   -hard because:
     -ambigutiy glass of water/NOUN vs water/VERB the plants
-    -sparse data
+    -sparse data:
+      -words havent seen before
+      -word-tag pairs havent seen before
   -how to tag:
     -take word into account (arrow is always a NOUN)
     -take into accout surrounding words (two determiners rarerly follow each other)
@@ -258,6 +260,7 @@ Hidden Markoc Models HMMs:
     -POS taggining
     -Names entity recognition (label words as belonging to persons, orgzanizations...)
     -Inforamtion field segmentation (is this part refering to place of event? to price of event?)
+  -assumes that each state only depends on the previous state (and on the word!??!)
   -P(TAGSequence|sentence) = P(T|S) = P(S|T)P(T)/P(S) = argmax(T) P(T|S) = argmax(T) P(S|T)P(T)
   -P(T) is the state transition sequence
   -P(S|T) are the emission probabilities
