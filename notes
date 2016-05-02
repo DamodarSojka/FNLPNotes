@@ -448,6 +448,16 @@ Distributional semantics:
     -log2(actual prob of seeing words x and y together / Predicted prob of seeing x and y together is they are independent)
     -positive PMI just 0 for pmi<=0 because for infrequent words not enough data to accurately determine negative PMIs
 
+Semantic roles:
+  -PropBank
+    -simpler
+    -more data
+  -FrameNet
+    -richer
+    -less data
+    -stanford dependencies
+    -lexical units
+
 Definitions:
   -gold labels (when performing Sentiment Analysis) are +/- attached to the sentence
   -estimation vs probability, estimation - we have not true probabilities we throw coin 10 times and mesaure
