@@ -11,3 +11,8 @@ Buffer overflow:
   ebp
   local var 1
   local var 2
+
+DH protocol:
+  -no mechanism to authenticate parties
+DH with certificates:
+ -mitm wont be able to sign the screct signing key
