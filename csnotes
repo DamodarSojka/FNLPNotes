@@ -16,3 +16,31 @@ DH protocol:
   -no mechanism to authenticate parties
 DH with certificates:
  -mitm wont be able to sign the screct signing key
+
+least privilege
+  -will only access what is necessary
+separation of privileges
+  -program splits into parts, one is doing work requiring privileges and other is not
+  
+dos
+  -SYN flooding, send packets without processing ACK, bandwitch is small, attacker is small
+  -spoofing, send on behalf of someone else
+  -smurfing, attacker sends ICMP requests (pings) to the networks broadcast address of a router configured to relay
+    ICMPs to all devices behind the router
+  -DNS resolver, ask him on behalf of victim about about the address of something, huge response for a small querry
+    can use list of known DNS resolvers to drop them
+    
+firewall
+  -divide trusted interior of a network from untrusted outside
+  -less pos for compromise: no compilers linkers libraries ...
+  -few accounts
+  -physical divider if hardware router
+  -set of rules
+  -can also route
+  -OSI level 3 required to read IP
+  -stateless just check ip/port of connections
+  -statefull can check if remote starts ssending packets to many ports (port scan), when over threshold fk him up
+  -application proxy OSI 7, simulates requests, now certain application requests can be blocked:
+    -block web traffic containing certain words
+    -prevent anything looking like a credit card from leaving db
+  -personal, basic can be disabled partially or fully
