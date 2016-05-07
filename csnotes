@@ -75,3 +75,5 @@ multi-level security
   -can express policies that high-level subject can't write to low-level object
   -categories are needed, project A project B, departments divisions
   - User{} <= Manager{} <= Admin {}, User{H} not comparable with Admin{W} 
+
+vunrability half-life after disclosure
