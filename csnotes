@@ -77,3 +77,15 @@ multi-level security
   - User{} <= Manager{} <= Admin {}, User{H} not comparable with Admin{W} 
 
 vunrability half-life after disclosure
+
+cryptographic hash functions
+  -one way
+  -collision resistant
+  -easy to compute
+  
+security properties
+  -confidentiality no unathorized data access
+  -integrity no unauthorized data altering
+  -availability
+  -accountability actions are traceable to source
+  -authentication user or data origin identifiable
