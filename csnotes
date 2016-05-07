@@ -43,4 +43,35 @@ firewall
   -application proxy OSI 7, simulates requests, now certain application requests can be blocked:
     -block web traffic containing certain words
     -prevent anything looking like a credit card from leaving db
-  -personal, basic can be disabled partially or fully
+  -personal, basic can be disabled partially or fully by malware
+  
+access control:
+  -starts with the user and asks if the user has access to the object (information)
+
+information flow control:
+  -starts with the information and asks if that info can be known to the subject
+  
+access modes
+  -way of accessing an object
+  -can alter
+  -can observe
+  
+access rights
+  -combination of modes
+  -can write (both alter and observe)
+  -can append (alter)
+  -can read (observe)
+  
+access control matrix
+  -subjects Alice Bob
+  -operations (like rights) exec read append write
+  -objects cv.doc game.exe
+  -but it is for practical purposes implemented differently:
+    -have a list with each object (enumarate all objects to find all permissions for a user)
+    -store list with each subject (hard to say who has access to a particular file)
+
+multi-level security
+  -security levels are ordered unclassified <= confidental <= secret <= topsecret
+  -can express policies that high-level subject can't write to low-level object
+  -categories are needed, project A project B, departments divisions
+  - User{} <= Manager{} <= Admin {}, User{H} not comparable with Admin{W} 
