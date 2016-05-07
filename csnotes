@@ -47,9 +47,11 @@ firewall
   
 access control:
   -starts with the user and asks if the user has access to the object (information)
+  -all or nothing, either let user access the data or not
 
 information flow control:
   -starts with the information and asks if that info can be known to the subject
+  -tracks how information propagate through the system during the execution to make sure that it is handled correctly
   
 access modes
   -way of accessing an object
