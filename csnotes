@@ -89,3 +89,11 @@ security properties
   -availability
   -accountability actions are traceable to source
   -authentication user or data origin identifiable
+
+negative security:
+  -blacklist
+  -other ppl create the list
+
+positive security:
+  -whitelist
+  -you need to compile list of desireabble things
