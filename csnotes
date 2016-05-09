@@ -108,3 +108,9 @@ intrusion detection
   -signature
     pattern
     warm up time
+
+common
+  sql injection (no sanitize)
+  os command injection
+  buffer overflow (checking size of input)
+  CSS
