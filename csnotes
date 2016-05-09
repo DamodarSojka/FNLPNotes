@@ -99,3 +99,12 @@ negative security:
 positive security:
   -whitelist
   -you need to compile list of desireabble things
+
+intrusion detection
+  -heuristic
+    dynamic
+    can detect new
+    admin work required
+  -signature
+    pattern
+    warm up time
