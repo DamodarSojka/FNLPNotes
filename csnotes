@@ -31,6 +31,7 @@ dos
     can use list of known DNS resolvers to drop them
     
 firewall
+  -software/hardware
   -divide trusted interior of a network from untrusted outside
   -less pos for compromise: no compilers linkers libraries ...
   -few accounts
