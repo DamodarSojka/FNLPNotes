@@ -114,12 +114,45 @@ kernel threads
 user threads
   -library linked to the program manages the threads
   -no need to manipulate address spaces (only kernel can anyway)
-  -
+  -fastttt! 10-100x times than kernel threads
+  -small TCB tread control block
+  -no sys calls involved
+  -thread should use yields(), willing to give up CPU
+  -preemption:
+    -scheduler preriodically interrupots threads, by sending signla (like software interpurt but OS to user-level
+  -in order to work with IO, kernel threads should still be used, pool of them can be used for different operations
   
 forking:
   -dont copy parent's address space, child promise that wont change - vfork
   -copy on write, chreate new address space with mapping to the old
   -if either parent or child write to the table, exception OS adjusts tables
+
+Synchronisation:
+  -instructions executed by a single thread are totally ordered
+  -in absence of sync, instructions of distinct threads must be considered simultaneous
+  -critical sections, squences of instructions that may get incorrect resulsts if executed simultaneously
+  -race consition, result dependent on timing
+  -mutual exclustion, not simultaneouse
+  -interleavings, when one thread is context switched to another that also works on the data first one worked
+
+correct critial section requirements:
+  -mutual exclustion, at most one thread in the critical section
+  -progress, thread outside of critical can't prevent another thread to enter critical
+  -bounded waitining (no starvation), eventually will enter the critical
+  -performance, overhead of entering and exiting is small with respect to the work being done by it
+  
+mutex
+  -while(turn !=i){}turn = I;
+  -busy-wait problem
+  -lock
+    -acquire(), does not return until the caller gets the lock
+    -release()
+
+spinlock
+  -the caller busy-waits or spins for lock to be released
+  -acquire/release must be atomic
+  -need help from hardware atomic instructions test-and-set
+  
 
 definitions:
   -multiprogramming keeps multiple programs loaded in memory, overlaps IO with actual computation
