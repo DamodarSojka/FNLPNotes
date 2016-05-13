@@ -149,14 +149,40 @@ mutex
     -release()
 
 spinlock
-  -the caller busy-waits or spins for lock to be released
+  -the caller busy-waits or spins for lock to be released, wasteful
   -acquire/release must be atomic
   -need help from hardware atomic instructions test-and-set
   
+semaphore
+  -wait()
+  -signal()
+  -counting semaphore - integer value can range over an unrestricted domain
+  -binary semaphore - integer value only 0/1, same as lock
+  -each semaphore has an associated queue of threads
+  -no busy waiting
+  -threads are blocked at the level of program logic
+  
+monitors
+  -synchronization code is added by the compiler
+  -a class in which every method automatically asquires a lock on entry and relesaeses it on exit
+  -producer wants to produce but full now what?!?
+  -condition variables
+    -wait(c)
+      releases lock
+      wait for someone else to signal condition
+    signal(c)
+      wake up at most one waiting thread
+    boardcast(c)
+      wake up all waiting threads
+      
+deadlock
+  mutual exclusion
+  hold and wait
+  no preemption
+  circular wait
 
 definitions:
   -multiprogramming keeps multiple programs loaded in memory, overlaps IO with actual computation
   -timesharingOS multiple terminals into one machine, optimize response time, multiple users
   -policy what will be done
   -mechanism how to do it
-  
