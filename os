@@ -59,6 +59,33 @@ loadable kernel modules
   -other dynamically loaded
   -efficient
   -flexible
+  
+process:
+  -name is process ID (PID)
+  -abstraction of execution
+  -sequential process
+    -an address space
+    -single thread
+  -consists of
+    -address space
+      -the code instructions
+      -data for the running program
+    -CPU state
+      -program counter PC
+      -the stack pointer
+      -general purpose registers
+    -OS resources
+      -open files
+      -network connections
+    -data structure to keep track of a process state
+      -process control block PCB or process descriptor
+      -when process is running the state is in the CPU
+      -when OS takes over data is saved to the PCB
+      -context switch when from one process to another
+    -exectution state
+      -ready, waitining to be assigned to a CPU
+      -running, exectuing on a CPU
+      -waitinig 'blocked' waiting for an event IO/message from another process
 
 definitions:
   -multiprogramming keeps multiple programs loaded in memory, overlaps IO with actual computation
