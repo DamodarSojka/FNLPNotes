@@ -86,6 +86,12 @@ process:
       -ready, waitining to be assigned to a CPU
       -running, exectuing on a CPU
       -waitinig 'blocked' waiting for an event IO/message from another process
+      -collection of queues that represent state of all processes in the system, PCBs are moved between the queues
+
+forking:
+  -dont copy parent's address space, child promise that wont change - vfork
+  -copy on write, chreate new address space with mapping to the old
+  -if either parent or child write to the table, exception OS adjusts tables
 
 definitions:
   -multiprogramming keeps multiple programs loaded in memory, overlaps IO with actual computation
