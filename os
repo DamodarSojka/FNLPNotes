@@ -77,17 +77,45 @@ process:
     -OS resources
       -open files
       -network connections
-    -data structure to keep track of a process state
-      -process control block PCB or process descriptor
-      -when process is running the state is in the CPU
-      -when OS takes over data is saved to the PCB
-      -context switch when from one process to another
-    -exectution state
-      -ready, waitining to be assigned to a CPU
-      -running, exectuing on a CPU
-      -waitinig 'blocked' waiting for an event IO/message from another process
-      -collection of queues that represent state of all processes in the system, PCBs are moved between the queues
+  -data structure to keep track of a process state (process control block PCB or process descriptor)
+    -when process is running the state is in the CPU
+    -when OS takes over data is saved to the PCB
+    -context switch when from one process to another
+  -exectution state
+    -ready, waitining to be assigned to a CPU
+    -running, exectuing on a CPU
+    -waitinig 'blocked' waiting for an event IO/message from another process
+    -collection of queues that represent state of all processes in the system, PCBs are moved between the queues
 
+threads:
+  -part of the process (so code data and files are shared)
+  -concurrent (many threads on a single)
+  -parallel (multi core system)
+  -has private stack and CPU state (registers)
+  -a sequential execution stream within a process
+  -cheap communication to other threads of the process
+
+multithreading
+  -useful for
+    -handling concurent events (web servers)
+    -building parallel programs (matrix multiply)
+  -useful also on a uniprocessor
+  -faster better cheaper than creating new processes
+  
+kernel threads
+  -OS creates them
+  -TID's
+  -allocation on execution stack within the process address space
+  -thread control block
+  -OS can overlap IO and computation INSIDE the process
+  -cheaper than processes
+  -still expensive, they require system call
+    
+user threads
+  -library linked to the program manages the threads
+  -no need to manipulate address spaces (only kernel can anyway)
+  -
+  
 forking:
   -dont copy parent's address space, child promise that wont change - vfork
   -copy on write, chreate new address space with mapping to the old
