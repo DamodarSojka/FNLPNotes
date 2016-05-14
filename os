@@ -372,9 +372,134 @@ page tables also help with
   shared memory used as a mean of communcation, no syscall required
   
 virtual memory
+  paged virtual memory, use pages to manage virtual mem
+  on page falut
+    invalid reference -> abort
+    just not in memory
+      find free frame
+      swap frame via IO
+      reset tables to indicate page now in memory, set validation bit = v
+      restart the instruction that wanted the page
+  demanded pagning, only load what is necessary
   
+page replacement, when no free page to write to evict page frames
+  try to pick a page that wont be needed
+  try to pick a page that was not modified, so no need to save to disk (clean pages)
+  
+  
+FIFO replacement algorithm
+  belady's anomaly, increasint the number of page frames may increase the number of page faults!
     
+least recently used LRU
+  use past knowledge to predict future
+  associate time of last use with each page
+  at regular interval
+    if hasnt been used (ref bit = 0) incerement the counter
+    if has been used (ref bit = 1) zero the counter
+    zero ref bit
+    page with highest counter is the least recently used
     
+second-chance clock / not recently used NRU
+  replace 'old enough' pages
+  circural linked list of frames
+    if ref bit is off swap
+    if on turn off and move
+    
+allocation of frames among processes
+  local
+    each process is given a limit of pages it can use
+    then every replacement alg is local
+  global
+    the one to swap is chosen among all pages regardless of the owner
+    
+working set
+  WS(t,w) = {pages P such that P was referenced in the time interval (t,t-w)} under set semantics
+    t time
+    w working set window (mesaured in page refs)
+    a page is in WS only if it was reference in the last w references
+  working set has to be in the memory, otherwise heavy faulting
+    
+thrashing
+  the system spends most of its time servicing page faults, little time doing actual work
+  could be the case that replacement algorithm incompatible with program behavior
+  could be that too many processes
+  track Page fault frequency
+    if actual rate too low take frames from the process
+    if actual rate too high give frames to the process
+    
+disks
+  large 1-dm array of logical blocks
+  array is mapped onto the sectors of the disk
+  performance
+    seek - how fast arm moves
+    rotation - waiting for the sector to rotate under head
+    transfer
+  seeks are expensive, disk requests are scheduled
+  
+FCFS
+  just process the requests
+  reasonable when load is low
+  
+SSTF shortest seek time first
+  reasonable default
+  minimize arm movement
+  maximize request rate
+  may cause starvation
+  unfair towards middle blocks (blocks placed physically in the middle)
+  
+SCAN/elevator alhorithm
+  move from end to the start
+  if not uniformly dense or dense at the other end of the disk
+  
+C-SCAN
+  same as SCAN but at the end it immediatelly comes back at the start without servicing middle guys
+  
+C-LOOK
+  reasonable default
+  as SCAN but goes as far as last request in each direction
+  
+OS file system
+  hide hardware specific interface
+  allocates disk blocks
+  checks permissions
+  maintains metadata
+  diff access methods
+    sequential access, one byte at a time
+    direct access, any byte
+
+protection system
+  objects what
+  principlas who
+  action how read/write
+  access control lists, keep list of principals with their allowed actions
+  capabilities for each principal keep list of objects and principals allowed actions
+  put users in groups put groups in ACLs
+  
+basic file system structure
+  every file and directoru is represented by an inode indexnode
+  contains
+    metadata, file wner access rights
+    location fot the file's blocks on disk
+  each file is known by the number - inode number
+
+directories
+  is a flat file of fixed-size entries
+  each entry consists of an inode number and a file name
+  directories give the inode number of a file
+  top part of the filesystem contains all of the inodes
+
+how to organize blocks on a disk
+  inode points to the first block of the file, then linked list
+  inode constains a list of block numbers contatining the file (index)
+  block list
+    each inode constains 13 block pointers
+    first 10 are direct pointers (pointers to 512B blocks of file data) can get 5120B
+    11th can get to 128*512B 65kb
+    12 can get to 128*128*512B 8mb
+    13 can get to 128*128*128*512B 1gb
+    max file size is little over 1gb (UNIX 7)
+    chaninging block size varies max file size 1kb -- 17gb 4kb -- 4tb
+  
 definitions:
   -multiprogramming keeps multiple programs loaded in memory, overlaps IO with actual computation
   -timesharingOS multiple terminals into one machine, optimize response time, multiple users
